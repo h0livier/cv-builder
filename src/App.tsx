@@ -64,12 +64,14 @@ export default function App() {
                 {renderContent()}
             </Box>
             
-            <Stack display='flex' alignItems='center' w='100%' gap={2}>
-                <Stack w={['100%', '75%', '50%']}>
-                    <Button onClick={nextStep}>Etape suivante</Button>
-                    <Button variant='outline' onClick={previousStep}>Etape précédente</Button>
+            
+                <Stack display='flex' alignItems='center' w='100%' gap={2}>
+                    <Stack w={['100%', '75%', '50%']}>
+                        {(activeStep < 3) && <Button onClick={nextStep}>Etape suivante</Button>}
+                        {(activeStep !== 1) && <Button variant='outline' onClick={previousStep}>Etape précédente</Button>}
+                    </Stack>
                 </Stack>
-            </Stack>
+            
         </Box>
     )
 }
