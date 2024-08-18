@@ -20,13 +20,13 @@ export default function SchoolListItem({item, deleteItem, saveItem}: SkillListIt
           ...prevFormData,
           [name]: value,
         }));
-        saveItem(item.index, {index: item.index, skill: value})
+        saveItem(item.index, {index: item.index, value: value})
     }
 
     return(
         <>
             <Box display='flex' alignItems='flex-end'>
-                <FormInput label="Nom" name='skill' value={updatedItem.skill} updateValue={handleInputChange} />
+                <FormInput label="Nom" name='value' value={updatedItem.value} updateValue={handleInputChange} />
                 <Box display='flex' gap={3} justifyContent='flex-end'>
                     <Button ml='10px' mb="8px" onClick={() => deleteItem(item.index)}>
                         <DeleteIcon />

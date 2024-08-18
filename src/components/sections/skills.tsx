@@ -6,12 +6,16 @@ import { useState, useEffect } from "react";
 import SkillListItem from "../lists/items/skill-list-item";
 
 export interface SkillSectionItem extends EditableListItem{
-    skill: string,
+    value: string,
 }
 
-export default function SkillSection(){
+export interface SkillSectionProps{
+    storageKey: string,
+}
 
-    const [skillItems, setSkillItems] = useStorage('local', 'skillItems', []);
+export default function SkillSection({storageKey}: SkillSectionProps){
+
+    const [skillItems, setSkillItems] = useStorage('local', storageKey, []);
 
     const [items, setItems] = useState<SkillSectionItem[]>([]);
 
@@ -25,7 +29,7 @@ export default function SkillSection(){
     const addItem = () => {
         const newIndex = getUniqueID((items.length + 1).toString())
         const newItem = {
-            skill: '',
+            value: '',
             index: newIndex
         }
         setItems([...items, newItem])
