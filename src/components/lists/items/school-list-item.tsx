@@ -1,4 +1,3 @@
-import {WorkSectionItem} from "@/components/sections/work.tsx";
 import FormInput from "@/components/forms/input.tsx";
 import {Box, Button, Stack, Text} from "@chakra-ui/react";
 import {DeleteIcon, EditIcon} from "@chakra-ui/icons";
