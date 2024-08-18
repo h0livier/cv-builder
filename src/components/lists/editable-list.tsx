@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSXElementConstructor, ReactElement } from "react";
 import {Stack, StackDivider} from "@chakra-ui/react";
 
 export interface EditableListItem {
@@ -8,12 +8,13 @@ export interface EditableListItem {
 export interface EditableListProps {
     items: EditableListItem[]
     renderChild: (item: EditableListItem) => React.ReactNode;
+    customDivider?: ReactElement<any, string | JSXElementConstructor<any>>;
 }
 
-export default function EditableList({items, renderChild}: EditableListProps) {
+export default function EditableList({items, renderChild, customDivider}: EditableListProps) {
 
     return(
-        <Stack divider={<StackDivider borderColor='gray.200' />} spacing={4}>
+        <Stack divider={customDivider ? customDivider : <StackDivider borderColor='gray.200' />} spacing={4}>
             {items.map(item => renderChild(item))}
         </Stack>
     )

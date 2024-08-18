@@ -5,6 +5,7 @@ import React, {useState} from "react";
 import ProfileSection from "@/components/sections/profile.tsx";
 import SchoolSection from "@/components/sections/school.tsx";
 import WorkSection from "@/components/sections/work.tsx";
+import SkillSection from "@/components/sections/skills";
 
 interface Section{
     id: string,
@@ -18,9 +19,8 @@ export default function OtherPage(){
         {id: getUniqueID('1'), title: 'Formation Scolaire', body: <SchoolSection /> },
         {id: getUniqueID('2'), title: 'Profil', body: <ProfileSection /> },
         {id: getUniqueID('3'), title: 'Expérience Professionnelle', body: <WorkSection /> },
-        {id: getUniqueID('4'), title: 'Compétences', body: <WorkSection /> },
+        {id: getUniqueID('4'), title: 'Compétences', body: <SkillSection /> },
         {id: getUniqueID('5'), title: 'Langues', body: <WorkSection /> },
-        {id: getUniqueID('6'), title: 'Compétences', body: <WorkSection /> },
         {id: getUniqueID('7'), title: 'Loisirs', body: <WorkSection /> }
     ])
 
