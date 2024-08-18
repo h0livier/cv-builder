@@ -6,6 +6,7 @@ import ProfileSection from "@/components/sections/profile.tsx";
 import SchoolSection from "@/components/sections/school.tsx";
 import WorkSection from "@/components/sections/work.tsx";
 import SkillSection from "@/components/sections/skills";
+import Languagesection from "@/components/sections/languages";
 
 interface Section{
     id: string,
@@ -20,7 +21,7 @@ export default function OtherPage(){
         {id: getUniqueID('2'), title: 'Profil', body: <ProfileSection /> },
         {id: getUniqueID('3'), title: 'Expérience Professionnelle', body: <WorkSection /> },
         {id: getUniqueID('4'), title: 'Compétences', body: <SkillSection storageKey="skillItems" /> },
-        {id: getUniqueID('5'), title: 'Langues', body: <WorkSection /> },
+        {id: getUniqueID('5'), title: 'Langues', body: <Languagesection /> },
         {id: getUniqueID('7'), title: 'Loisirs', body: <SkillSection storageKey="loisirsItems" /> }
     ])
 
