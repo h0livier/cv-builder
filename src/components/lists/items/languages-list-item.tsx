@@ -1,6 +1,6 @@
 import FormInput from "@/components/forms/input.tsx";
-import {Box, Button, Stack, Text} from "@chakra-ui/react";
-import {DeleteIcon, EditIcon} from "@chakra-ui/icons";
+import {Box, Button, Stack} from "@chakra-ui/react";
+import {DeleteIcon} from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { LanguagesSectionItem } from "@/components/sections/languages";
 

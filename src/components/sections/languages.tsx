@@ -3,7 +3,6 @@ import EditableList, { EditableListItem } from "../lists/editable-list";
 import { getUniqueID } from "@/helpers/unique-id.helper";
 import { useStorage } from "@/hooks/useStorage";
 import { useState, useEffect } from "react";
-import SkillListItem from "../lists/items/skill-list-item";
 import LanguagesListItem from "../lists/items/languages-list-item";
 
 export interface LanguagesSectionItem extends EditableListItem{
