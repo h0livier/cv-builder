@@ -14,6 +14,7 @@ export default function CvPdf(){
     const [school, _school] = useStorage('local', 'schoolItems', [])
     const [work, _work] = useStorage('local', 'workItems', [])
     const [languages, _languages] = useStorage('local', 'languagesItems', [])
+    const [loisirsItems, _loisirsItems] = useStorage('local', 'loisirsItems', [])
 
     // Create styles
     const styles = StyleSheet.create({
@@ -177,6 +178,17 @@ export default function CvPdf(){
                                         <Text style={styles.section_value}>{item.level}</Text>
                                     </View>
                                 ))}
+                            </>
+                        }
+
+                        {(loisirsItems && loisirsItems.length !== 0) && 
+                            <>
+                                <Text style={styles.title}>Loisirs</Text>
+                                <View key={getUniqueID('lois')} style={{...styles.flexHorizontal, ...{ marginTop: '5px'}}}>
+                                    {loisirsItems.map((item: SkillSectionItem, index: number) => (
+                                        <Text key={item.index} style={styles.section_value}>{item.value}{index !== loisirsItems.length -1 && ','} </Text>
+                                    ))}
+                                </View>
                             </>
                         }
                     </View>
