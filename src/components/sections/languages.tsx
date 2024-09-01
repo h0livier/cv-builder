@@ -57,7 +57,7 @@ export default function Languagesection(){
                     />
                 }
             />
-            <Stack direction='row'>
+            <Stack direction={{base: 'column', md:'row'}}>
                 <Button flexGrow={1} onClick={saveAllItem}>Enregistrer les modifications</Button>
                 <Button flexGrow={1} onClick={addItem}>Ajouter un élément</Button>
             </Stack>

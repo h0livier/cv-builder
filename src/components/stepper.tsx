@@ -1,14 +1,14 @@
 import {
     Step,
-    StepDescription,
     StepIcon,
     StepIndicator,
     StepNumber,
     StepSeparator,
     StepStatus,
-    StepTitle,
     Stepper,
-    Box,
+    Stack,
+    Flex,
+    Text
 } from '@chakra-ui/react'
 
 export interface Step{
@@ -24,25 +24,27 @@ interface NavigationStepperProps{
 export default function NavigationStepper({activeStep, steps}: NavigationStepperProps) {
 
     return (
-        <Stepper index={activeStep}>
-            {steps.map((step, index) => (
-                <Step key={index}>
-                    <StepIndicator>
-                        <StepStatus
-                            complete={<StepIcon />}
-                            incomplete={<StepNumber />}
-                            active={<StepNumber />}
-                        />
-                    </StepIndicator>
+        <Stack>
+             <Stepper size={'md'} index={activeStep}>
+                {steps.map((_step, index) => (
+                    <Step key={index}>
+                        <StepIndicator>
+                            <StepStatus
+                                complete={<StepIcon />}
+                                incomplete={<StepNumber />}
+                                active={<StepNumber />}
+                            />
+                        </StepIndicator>
+                        <StepSeparator />
+                    </Step>
+                ))}
+            </Stepper>
+            <Flex direction='column' alignItems='center' pt={5} justifyContent={'center'}>
+                <Text size={'lg'} fontWeight='bold'>{steps[activeStep-1].title}</Text>
+                <Text>{steps[activeStep-1].description}</Text>
+            </Flex>
 
-                    <Box flexShrink='0'>
-                        <StepTitle>{step.title}</StepTitle>
-                        <StepDescription>{step.description}</StepDescription>
-                    </Box>
-
-                    <StepSeparator />
-                </Step>
-            ))}
-        </Stepper>
+        </Stack>
+       
     )
 }

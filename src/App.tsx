@@ -1,5 +1,5 @@
 import './App.css'
-import {Box, Button, Stack} from "@chakra-ui/react";
+import {Box, Button, Flex, Stack} from "@chakra-ui/react";
 import NavigationStepper from "@/components/stepper.tsx";
 import {useSteps} from '@chakra-ui/react';
 import DataPages from "@/pages/data-page.tsx";
@@ -12,20 +12,12 @@ export interface Step{
 }
 
 const steps: Step[] = [
-    { title: 'First', description: 'Contact Info' },
-    { title: 'Second', description: 'Date & Time' },
-    { title: 'Third', description: 'Select Rooms' },
+    { title: 'Données personelles', description: 'Vos informations' },
+    { title: 'Détails', description: 'Votre carrière' },
+    { title: 'Impression', description: 'Choisissez votre CV !' },
 ]
 
-/*
-interface CurriculumVitae{
-    firstName: string,
-    lastName: string,
-}*/
-
 export default function App() {
-
-    //const [data, setData] = useStorage('local', 'cvData', {})
 
     const { activeStep, setActiveStep } = useSteps({
         index: 1,
@@ -56,22 +48,21 @@ export default function App() {
     }
 
     return (
-        <Box px={['5%', '10%', '15%']} pt={'5%'} bg='gray.100' minH='100vh'>
-
-            <NavigationStepper activeStep={activeStep} steps={steps} />
-
-            <Box py={5}>
-                {renderContent()}
-            </Box>
-            
-            
-                <Stack display='flex' alignItems='center' w='100%' gap={2}>
-                    <Stack w={['100%', '75%', '50%']}>
-                        {(activeStep < 3) && <Button onClick={nextStep}>Etape suivante</Button>}
-                        {(activeStep !== 1) && <Button variant='outline' onClick={previousStep}>Etape précédente</Button>}
+        <Box pt={'5%'} bg='gray.100' minH='100vh' pb={'3%'} >
+            <Flex width='100%' justifyContent='center' flexDirection={'column'} alignItems={'center'}>
+                <Box width={{base: '90%', sm: '80%', md: '70%', lg:'60%', xl: '50%'}}>
+                    <NavigationStepper activeStep={activeStep} steps={steps} />
+                    <Box py={5} my={10}>
+                        {renderContent()}
+                    </Box>
+                    <Stack display='flex' alignItems='center' w='100%' gap={2}>
+                        <Stack w={['100%', '75%', '50%']}>
+                            {(activeStep < 3) && <Button background='blue.300' onClick={nextStep}>Etape suivante</Button>}
+                            {(activeStep !== 1) && <Button variant='outline' onClick={previousStep}>Etape précédente</Button>}
+                        </Stack>
                     </Stack>
-                </Stack>
-            
+                </Box>
+            </Flex>
         </Box>
     )
 }

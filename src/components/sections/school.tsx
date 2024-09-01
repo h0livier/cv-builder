@@ -1,4 +1,4 @@
-import {Button, FormControl, FormLabel, Input, Stack, Textarea} from "@chakra-ui/react";
+import {Button, Stack} from "@chakra-ui/react";
 import EditableList, { EditableListItem } from "../lists/editable-list";
 import { getUniqueID } from "@/helpers/unique-id.helper";
 import { useStorage } from "@/hooks/useStorage";
@@ -69,51 +69,10 @@ export default function SchoolSection(){
                     />
                 }
             />
-            <Stack direction='row'>
+            <Stack direction={{base: 'column', md:'row'}}>
                 <Button flexGrow={1} onClick={saveAllItem}>Enregistrer les modifications</Button>
                 <Button flexGrow={1} onClick={addItem}>Ajouter un élément</Button>
             </Stack>
-        </Stack>
-    )
-
-    return (
-        <Stack spacing={2}>
-            <Stack spacing={3} direction='row'>
-                <FormControl>
-                    <FormLabel>Formation</FormLabel>
-                    <Input />
-                </FormControl>
-                <FormControl>
-                    <FormLabel>Emplacement</FormLabel>
-                    <Input />
-                </FormControl>
-            </Stack>
-            <FormControl>
-                <FormLabel>Nom de l'école</FormLabel>
-                <Input />
-            </FormControl>
-            <Stack spacing={3} direction='row'>
-                <FormControl>
-                    <FormLabel>De</FormLabel>
-                    <Input />
-                </FormControl>
-                <FormControl>
-                    <FormLabel>a</FormLabel>
-                    <Input />
-                </FormControl>
-                <FormControl>
-                    <FormLabel>A</FormLabel>
-                    <Input />
-                </FormControl>
-                <FormControl>
-                    <FormLabel>a</FormLabel>
-                    <Input />
-                </FormControl>
-            </Stack>
-            <FormControl>
-                <FormLabel>Description</FormLabel>
-                <Textarea></Textarea>
-            </FormControl>
         </Stack>
     )
 }

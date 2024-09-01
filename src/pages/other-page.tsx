@@ -17,8 +17,8 @@ interface Section{
 export default function OtherPage(){
 
     const [sections, setSections] = useState<Section[]>([
-        {id: getUniqueID('1'), title: 'Formation Scolaire', body: <SchoolSection /> },
         {id: getUniqueID('2'), title: 'Profil', body: <ProfileSection /> },
+        {id: getUniqueID('1'), title: 'Formation Scolaire', body: <SchoolSection /> },
         {id: getUniqueID('3'), title: 'Expérience Professionnelle', body: <WorkSection /> },
         {id: getUniqueID('4'), title: 'Compétences', body: <SkillSection storageKey="skillItems" /> },
         {id: getUniqueID('5'), title: 'Langues', body: <Languagesection /> },

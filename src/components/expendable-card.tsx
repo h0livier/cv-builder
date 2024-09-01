@@ -7,8 +7,8 @@ import {
     useDisclosure,
     Box
 } from '@chakra-ui/react';
-import React, {useState} from "react";
-import {ChevronDownIcon, ChevronUpIcon, ViewIcon, ViewOffIcon} from "@chakra-ui/icons";
+import React from "react";
+import { ViewIcon, ViewOffIcon} from "@chakra-ui/icons";
 
 export interface ExpendableCardProps{
     id: string,
@@ -17,20 +17,20 @@ export interface ExpendableCardProps{
     changeOrder: (id: string, value: number) => void,
 }
 
-export default function ExpendableCard({id, title, body, changeOrder}: ExpendableCardProps){
+export default function ExpendableCard({title, body}: ExpendableCardProps){
 
     const { isOpen, onToggle } = useDisclosure()
-    const [isVisible, setIsVisible] = useState(true)
+    //const [isVisible, setIsVisible] = useState(true)
 
     return (
         <Card px={5}>
             <CardHeader minW='100%' borderBottom={isOpen ? '1px': '0px'}>
-                <Box display='flex' alignItems='center' justifyContent='space-between'>
-                    <Heading flexGrow={1} onClick={onToggle} size='lg'>{title}</Heading>
+                <Box onClick={onToggle} display='flex' alignItems='center' justifyContent='space-between'>
+                    <Heading flexGrow={1} size='md'>{title}</Heading>
                     <Box zIndex={10} display='flex' gap={4}>
-                        <ChevronUpIcon boxSize={8} onClick={() => changeOrder(id, -1)} />
-                        <ChevronDownIcon boxSize={8} onClick={() => changeOrder(id, 1)} />
-                        {isVisible ? <ViewIcon boxSize={7} onClick={() => setIsVisible(!isVisible)} /> : <ViewOffIcon boxSize={7} onClick={() => setIsVisible(!isVisible)} /> }
+                        {/*<ChevronUpIcon boxSize={8} onClick={() => changeOrder(id, -1)} />
+                        <ChevronDownIcon boxSize={8} onClick={() => changeOrder(id, 1)} />*/}
+                        {isOpen ? <ViewOffIcon boxSize={5} /> : <ViewIcon boxSize={5} />  }
                     </Box>
                 </Box>
             </CardHeader>
